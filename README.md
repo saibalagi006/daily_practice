@@ -4,4 +4,6 @@ This repository contains my daily practice work. This includes advanced python, 
 10082022:
 1. Learnt the try-except-else-finally block 
 
+10092022:
+1. Learnt the lambda, map,filter and reduce functions 
   
