@@ -1,5 +1,9 @@
 ### Binary Search 
 
+from ast import Pass
+from socket import NI_NAMEREQD
+
+
 def bsearch(seq,v,l,r):
     if(r-l==0):
         return False
@@ -106,8 +110,48 @@ def merge_sort(a,l,r):
         return merge(left,right)
 
 class binarysearchtree:
-    def __init__(self):
-        
+    def __init__(self,val):
+        self.left = None
+        self.right = None
+        self.val = val
+
+    def insert(self,val):
+        if(self.val==val):
+            return 
+        elif(val<self.val):
+            if(self.left is not None) :
+                self.left.insert(val)
+            else:
+                self.left = binarysearchtree(val)
+        elif(val>self.val):
+            if(self.right is not None):
+                self.right.insert(val)
+            else:
+                self.right = binarysearchtree(val)
+
+    def search(self,val):
+        if(self.val==val):
+            return True
+        elif(val<self.val):
+            if(self.left is not None):
+                return self.left.search(val)
+            else:
+                return False
+        elif(val>self.val):
+            if(self.right is not None):
+                return self.right.search(val)
+            else:
+                return False
+
+    def in_order_traversal(self):
+        ele = []
+        if(self.left is not None):
+            ele+=self.left.in_order_traversal(self)
+        ele.append(self.val)
+        if(self.right is not None):
+            ele+=self.right.in_order_traversal(self)
+        return ele     
+         
 
 
 if __name__ == "__main__":
